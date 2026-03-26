@@ -1,0 +1,1081 @@
+{
+  "generated_at": "2026-03-26T07:21:17.382794+00:00",
+  "total": 25,
+  "items": [
+    {
+      "id": "94d724914d42",
+      "title": "Iran's foreign minister says there are no negotiations with US",
+      "source": "bbc.com",
+      "source_url": "https://www.bbc.com/news/articles/cly9nz5vyz4o?at_medium=RSS&at_campaign=rss",
+      "video_url": null,
+      "description": "Trump says he is talking to \"the right people\" in Iran, but Tehran says no such negotiations are being held.",
+      "pub_date": "Wed, 25 Mar 2026 21:06:26 GMT",
+      "crawled_at": "2026-03-26T07:21:17.381770+00:00",
+      "thumbnail": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/338b/live/6d193f40-284d-11f1-b297-95b0a0a8331e.jpg",
+      "verdict": {
+        "label": "real",
+        "score_fake": 0.086,
+        "confidence": 0.886
+      },
+      "agents": {
+        "style": {
+          "status": "ok",
+          "score_fake": 0.029,
+          "confidence": 0.562
+        },
+        "physics": {
+          "status": "ok",
+          "score_fake": 0.13,
+          "confidence": 0.792
+        },
+        "spatial": {
+          "status": "ok",
+          "score_fake": 0.0,
+          "confidence": 0.813
+        },
+        "temporal": {
+          "status": "ok",
+          "score_fake": 0.122,
+          "confidence": 0.618
+        },
+        "watermark": {
+          "status": "ok",
+          "score_fake": 0.016,
+          "confidence": 0.779
+        }
+      }
+    },
+    {
+      "id": "ac062ff82ee5",
+      "title": "'There's no safety anymore': Palestinians warn of expanding West Bank settler violence",
+      "source": "bbc.com",
+      "source_url": "https://www.bbc.com/news/articles/c747x00m83vo?at_medium=RSS&at_campaign=rss",
+      "video_url": null,
+      "description": "There has been a surge of attacks by Israeli settlers on Palestinian villages across the occupied territory since the start of the Iran war.",
+      "pub_date": "Wed, 25 Mar 2026 12:27:28 GMT",
+      "crawled_at": "2026-03-26T07:21:17.381770+00:00",
+      "thumbnail": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/4c1f/live/9a766e30-2830-11f1-a79a-77e93010d956.jpg",
+      "verdict": {
+        "label": "uncertain",
+        "score_fake": 0.485,
+        "confidence": 0.861
+      },
+      "agents": {
+        "style": {
+          "status": "ok",
+          "score_fake": 0.455,
+          "confidence": 0.757
+        },
+        "physics": {
+          "status": "ok",
+          "score_fake": 0.629,
+          "confidence": 0.627
+        },
+        "spatial": {
+          "status": "ok",
+          "score_fake": 0.532,
+          "confidence": 0.796
+        },
+        "temporal": {
+          "status": "ok",
+          "score_fake": 0.625,
+          "confidence": 0.529
+        },
+        "watermark": {
+          "status": "ok",
+          "score_fake": 0.598,
+          "confidence": 0.585
+        }
+      }
+    },
+    {
+      "id": "8a54d8faa65e",
+      "title": "Small window open for US-Iran talks, but swift end to war still unlikely",
+      "source": "bbc.com",
+      "source_url": "https://www.bbc.com/news/articles/c895xljyzewo?at_medium=RSS&at_campaign=rss",
+      "video_url": null,
+      "description": "President Trump says the US is already dealing with a \"top person\" in Iran, but Tehran denies that any talks have begun.",
+      "pub_date": "Tue, 24 Mar 2026 18:04:04 GMT",
+      "crawled_at": "2026-03-26T07:21:17.381770+00:00",
+      "thumbnail": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/5e3a/live/a33b24e0-27a7-11f1-a8d3-5d54fcb90a80.jpg",
+      "verdict": {
+        "label": "real",
+        "score_fake": 0.187,
+        "confidence": 0.613
+      },
+      "agents": {
+        "style": {
+          "status": "ok",
+          "score_fake": 0.139,
+          "confidence": 0.849
+        },
+        "physics": {
+          "status": "ok",
+          "score_fake": 0.07,
+          "confidence": 0.685
+        },
+        "spatial": {
+          "status": "ok",
+          "score_fake": 0.115,
+          "confidence": 0.645
+        },
+        "temporal": {
+          "status": "ok",
+          "score_fake": 0.274,
+          "confidence": 0.735
+        },
+        "watermark": {
+          "status": "ok",
+          "score_fake": 0.065,
+          "confidence": 0.561
+        }
+      }
+    },
+    {
+      "id": "3e66142d4cd3",
+      "title": "Iran war shows norms of international conflicts have been overturned",
+      "source": "bbc.com",
+      "source_url": "https://www.bbc.com/news/articles/c4gjv02g54ko?at_medium=RSS&at_campaign=rss",
+      "video_url": null,
+      "description": "US threats against energy infrastructure, and Iran's retaliation on its Gulf neighbours, signal a clear change.",
+      "pub_date": "Tue, 24 Mar 2026 15:55:08 GMT",
+      "crawled_at": "2026-03-26T07:21:17.381770+00:00",
+      "thumbnail": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/50fe/live/5001efa0-27a4-11f1-a79a-77e93010d956.jpg",
+      "verdict": {
+        "label": "real",
+        "score_fake": 0.204,
+        "confidence": 0.614
+      },
+      "agents": {
+        "style": {
+          "status": "ok",
+          "score_fake": 0.12,
+          "confidence": 0.522
+        },
+        "physics": {
+          "status": "ok",
+          "score_fake": 0.22,
+          "confidence": 0.816
+        },
+        "spatial": {
+          "status": "ok",
+          "score_fake": 0.223,
+          "confidence": 0.735
+        },
+        "temporal": {
+          "status": "ok",
+          "score_fake": 0.15,
+          "confidence": 0.561
+        },
+        "watermark": {
+          "status": "ok",
+          "score_fake": 0.184,
+          "confidence": 0.613
+        }
+      }
+    },
+    {
+      "id": "dcb850e51685",
+      "title": "A committed pharmacist and a homesick blogger – the Iranian civilians killed in the war",
+      "source": "bbc.com",
+      "source_url": "https://www.bbc.com/news/articles/c3v6ld7lv9no?at_medium=RSS&at_campaign=rss",
+      "video_url": null,
+      "description": "The toll on civilians is mounting fast as the US-Israeli war on Iran continues.",
+      "pub_date": "Mon, 23 Mar 2026 18:31:26 GMT",
+      "crawled_at": "2026-03-26T07:21:17.381770+00:00",
+      "thumbnail": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/d3e0/live/5181ce60-26df-11f1-934f-036468834728.jpg",
+      "verdict": {
+        "label": "fake",
+        "score_fake": 0.888,
+        "confidence": 0.779
+      },
+      "agents": {
+        "style": {
+          "status": "ok",
+          "score_fake": 0.826,
+          "confidence": 0.792
+        },
+        "physics": {
+          "status": "ok",
+          "score_fake": 0.959,
+          "confidence": 0.544
+        },
+        "spatial": {
+          "status": "ok",
+          "score_fake": 1.0,
+          "confidence": 0.598
+        },
+        "temporal": {
+          "status": "ok",
+          "score_fake": 0.885,
+          "confidence": 0.921
+        },
+        "watermark": {
+          "status": "ok",
+          "score_fake": 0.994,
+          "confidence": 0.89
+        }
+      }
+    },
+    {
+      "id": "c502c8ce9d20",
+      "title": "US' and Iran's options for ending war narrow the longer it goes on",
+      "source": "bbc.com",
+      "source_url": "https://www.bbc.com/news/articles/cn53zvlglg7o?at_medium=RSS&at_campaign=rss",
+      "video_url": null,
+      "description": "Iran shows no sign of climbdown, while air power alone cannot achieve the US' main goal.",
+      "pub_date": "Mon, 23 Mar 2026 15:34:38 GMT",
+      "crawled_at": "2026-03-26T07:21:17.381770+00:00",
+      "thumbnail": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/0e1a/live/3e3304a0-26d0-11f1-934f-036468834728.jpg",
+      "verdict": {
+        "label": "uncertain",
+        "score_fake": 0.596,
+        "confidence": 0.912
+      },
+      "agents": {
+        "style": {
+          "status": "ok",
+          "score_fake": 0.584,
+          "confidence": 0.922
+        },
+        "physics": {
+          "status": "ok",
+          "score_fake": 0.698,
+          "confidence": 0.652
+        },
+        "spatial": {
+          "status": "ok",
+          "score_fake": 0.503,
+          "confidence": 0.864
+        },
+        "temporal": {
+          "status": "ok",
+          "score_fake": 0.745,
+          "confidence": 0.635
+        },
+        "watermark": {
+          "status": "ok",
+          "score_fake": 0.601,
+          "confidence": 0.9
+        }
+      }
+    },
+    {
+      "id": "13203c3974e1",
+      "title": "Trump at a crossroads as US weighs tough options in Iran",
+      "source": "bbc.com",
+      "source_url": "https://www.bbc.com/news/articles/clyxv87zwwpo?at_medium=RSS&at_campaign=rss",
+      "video_url": null,
+      "description": "Statements from President Trump that the war is almost over are not matching up with the reality on the ground.",
+      "pub_date": "Sun, 22 Mar 2026 00:50:43 GMT",
+      "crawled_at": "2026-03-26T07:21:17.381770+00:00",
+      "thumbnail": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/5fa8/live/c5a4f260-2557-11f1-932e-8b5a2fd820dc.jpg",
+      "verdict": {
+        "label": "uncertain",
+        "score_fake": 0.37,
+        "confidence": 0.724
+      },
+      "agents": {
+        "style": {
+          "status": "ok",
+          "score_fake": 0.344,
+          "confidence": 0.881
+        },
+        "physics": {
+          "status": "ok",
+          "score_fake": 0.396,
+          "confidence": 0.757
+        },
+        "spatial": {
+          "status": "ok",
+          "score_fake": 0.302,
+          "confidence": 0.943
+        },
+        "temporal": {
+          "status": "ok",
+          "score_fake": 0.425,
+          "confidence": 0.736
+        },
+        "watermark": {
+          "status": "ok",
+          "score_fake": 0.275,
+          "confidence": 0.888
+        }
+      }
+    },
+    {
+      "id": "ac3a23841d22",
+      "title": "Why did US and Israel attack Iran and how long could the war last?",
+      "source": "bbc.com",
+      "source_url": "https://www.bbc.com/news/articles/cx2dyz6p3weo?at_medium=RSS&at_campaign=rss",
+      "video_url": null,
+      "description": "Conflict has spread across the Middle East since the US and Israel launched strikes on Iran on 28 February.",
+      "pub_date": "Wed, 25 Mar 2026 11:09:34 GMT",
+      "crawled_at": "2026-03-26T07:21:17.381770+00:00",
+      "thumbnail": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/dddd/live/33c15b00-25c9-11f1-9659-a9a8987c78b0.jpg",
+      "verdict": {
+        "label": "real",
+        "score_fake": 0.14,
+        "confidence": 0.598
+      },
+      "agents": {
+        "style": {
+          "status": "ok",
+          "score_fake": 0.173,
+          "confidence": 0.889
+        },
+        "physics": {
+          "status": "ok",
+          "score_fake": 0.23,
+          "confidence": 0.562
+        },
+        "spatial": {
+          "status": "ok",
+          "score_fake": 0.006,
+          "confidence": 0.795
+        },
+        "temporal": {
+          "status": "ok",
+          "score_fake": 0.045,
+          "confidence": 0.717
+        },
+        "watermark": {
+          "status": "ok",
+          "score_fake": 0.122,
+          "confidence": 0.942
+        }
+      }
+    },
+    {
+      "id": "9d86886588cc",
+      "title": "Why does the US have Iran's Kharg Island in its sights?",
+      "source": "bbc.com",
+      "source_url": "https://www.bbc.com/news/articles/c8jxzlwvd8ro?at_medium=RSS&at_campaign=rss",
+      "video_url": null,
+      "description": "The tiny island is home to one of the most critical pieces of Iran's energy infrastructure.",
+      "pub_date": "Fri, 20 Mar 2026 23:12:01 GMT",
+      "crawled_at": "2026-03-26T07:21:17.381770+00:00",
+      "thumbnail": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/ecce/live/0a54bbc0-1f86-11f1-b048-c9424b2cf5fd.jpg",
+      "verdict": {
+        "label": "uncertain",
+        "score_fake": 0.597,
+        "confidence": 0.648
+      },
+      "agents": {
+        "style": {
+          "status": "ok",
+          "score_fake": 0.658,
+          "confidence": 0.684
+        },
+        "physics": {
+          "status": "ok",
+          "score_fake": 0.46,
+          "confidence": 0.934
+        },
+        "spatial": {
+          "status": "ok",
+          "score_fake": 0.65,
+          "confidence": 0.921
+        },
+        "temporal": {
+          "status": "ok",
+          "score_fake": 0.481,
+          "confidence": 0.54
+        },
+        "watermark": {
+          "status": "ok",
+          "score_fake": 0.632,
+          "confidence": 0.852
+        }
+      }
+    },
+    {
+      "id": "71a501f0762f",
+      "title": "'You can't smell Nowruz in the air': Iran marks Persian new year under threat of strikes",
+      "source": "bbc.com",
+      "source_url": "https://www.bbc.com/news/articles/cvgkg8p7zlko?at_medium=RSS&at_campaign=rss",
+      "video_url": null,
+      "description": "Iranians speak to the BBC about preparing for the Nowruz new year festival during the war.",
+      "pub_date": "Fri, 20 Mar 2026 00:04:34 GMT",
+      "crawled_at": "2026-03-26T07:21:17.381770+00:00",
+      "thumbnail": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/a6e4/live/fbf43f20-2439-11f1-934f-036468834728.jpg",
+      "verdict": {
+        "label": "fake",
+        "score_fake": 0.833,
+        "confidence": 0.555
+      },
+      "agents": {
+        "style": {
+          "status": "ok",
+          "score_fake": 0.94,
+          "confidence": 0.856
+        },
+        "physics": {
+          "status": "ok",
+          "score_fake": 0.69,
+          "confidence": 0.58
+        },
+        "spatial": {
+          "status": "ok",
+          "score_fake": 0.727,
+          "confidence": 0.628
+        },
+        "temporal": {
+          "status": "ok",
+          "score_fake": 0.932,
+          "confidence": 0.768
+        },
+        "watermark": {
+          "status": "ok",
+          "score_fake": 0.907,
+          "confidence": 0.796
+        }
+      }
+    },
+    {
+      "id": "7e9135f81198",
+      "title": "Total repression and air strikes bring unrelenting dread for Iranians",
+      "source": "bbc.com",
+      "source_url": "https://www.bbc.com/news/articles/cn9e0wrglgdo?at_medium=RSS&at_campaign=rss",
+      "video_url": null,
+      "description": "Tehran residents tell the BBC they're caught between US-Israeli bombing and an Iranian regime trying to reassert its power.",
+      "pub_date": "Wed, 18 Mar 2026 00:07:36 GMT",
+      "crawled_at": "2026-03-26T07:21:17.381770+00:00",
+      "thumbnail": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/ef75/live/d2549d10-2298-11f1-b297-95b0a0a8331e.jpg",
+      "verdict": {
+        "label": "real",
+        "score_fake": 0.269,
+        "confidence": 0.709
+      },
+      "agents": {
+        "style": {
+          "status": "ok",
+          "score_fake": 0.161,
+          "confidence": 0.779
+        },
+        "physics": {
+          "status": "ok",
+          "score_fake": 0.388,
+          "confidence": 0.66
+        },
+        "spatial": {
+          "status": "ok",
+          "score_fake": 0.273,
+          "confidence": 0.753
+        },
+        "temporal": {
+          "status": "ok",
+          "score_fake": 0.38,
+          "confidence": 0.777
+        },
+        "watermark": {
+          "status": "ok",
+          "score_fake": 0.195,
+          "confidence": 0.614
+        }
+      }
+    },
+    {
+      "id": "10f21f4b72b1",
+      "title": "Wary allies show there's no quick fix to Trump's Iran crisis",
+      "source": "bbc.com",
+      "source_url": "https://www.bbc.com/news/articles/c8r17plnvy3o?at_medium=RSS&at_campaign=rss",
+      "video_url": null,
+      "description": "European leaders are hesitant to help Trump secure the Strait of Hormuz, but they know inaction on the Iran war is not really an option.",
+      "pub_date": "Mon, 16 Mar 2026 17:34:13 GMT",
+      "crawled_at": "2026-03-26T07:21:17.381770+00:00",
+      "thumbnail": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/f521/live/30b2ab10-214d-11f1-8771-8f3ba04352de.jpg",
+      "verdict": {
+        "label": "uncertain",
+        "score_fake": 0.496,
+        "confidence": 0.731
+      },
+      "agents": {
+        "style": {
+          "status": "ok",
+          "score_fake": 0.443,
+          "confidence": 0.879
+        },
+        "physics": {
+          "status": "ok",
+          "score_fake": 0.408,
+          "confidence": 0.518
+        },
+        "spatial": {
+          "status": "ok",
+          "score_fake": 0.383,
+          "confidence": 0.819
+        },
+        "temporal": {
+          "status": "ok",
+          "score_fake": 0.542,
+          "confidence": 0.785
+        },
+        "watermark": {
+          "status": "ok",
+          "score_fake": 0.447,
+          "confidence": 0.72
+        }
+      }
+    },
+    {
+      "id": "c2e0e46189bb",
+      "title": "Under drone fire, exiled Kurds wait to confront Iranian regime",
+      "source": "bbc.com",
+      "source_url": "https://www.bbc.com/news/articles/c79505804lpo?at_medium=RSS&at_campaign=rss",
+      "video_url": null,
+      "description": "A group of fighters based in Iraq say they are \"ready to go home\", as they face drone attacks from Tehran.",
+      "pub_date": "Fri, 13 Mar 2026 22:02:39 GMT",
+      "crawled_at": "2026-03-26T07:21:17.381770+00:00",
+      "thumbnail": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/d7ff/live/57adba20-1ef5-11f1-9120-a910fc22c6ac.jpg",
+      "verdict": {
+        "label": "uncertain",
+        "score_fake": 0.651,
+        "confidence": 0.788
+      },
+      "agents": {
+        "style": {
+          "status": "ok",
+          "score_fake": 0.697,
+          "confidence": 0.844
+        },
+        "physics": {
+          "status": "ok",
+          "score_fake": 0.576,
+          "confidence": 0.721
+        },
+        "spatial": {
+          "status": "ok",
+          "score_fake": 0.586,
+          "confidence": 0.671
+        },
+        "temporal": {
+          "status": "ok",
+          "score_fake": 0.79,
+          "confidence": 0.862
+        },
+        "watermark": {
+          "status": "ok",
+          "score_fake": 0.695,
+          "confidence": 0.513
+        }
+      }
+    },
+    {
+      "id": "6b8851b1a777",
+      "title": "As hopes of regime change in Iran fade, Netanyahu faces political test",
+      "source": "bbc.com",
+      "source_url": "https://www.bbc.com/news/articles/cvg5yp7v0ppo?at_medium=RSS&at_campaign=rss",
+      "video_url": null,
+      "description": "Israeli leaders are framing the bombing campaign as having transformed the Middle East in their favour as pressure to end the conflict builds.",
+      "pub_date": "Fri, 13 Mar 2026 15:35:26 GMT",
+      "crawled_at": "2026-03-26T07:21:17.381770+00:00",
+      "thumbnail": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/35b0/live/50d502f0-1ee4-11f1-9120-a910fc22c6ac.jpg",
+      "verdict": {
+        "label": "uncertain",
+        "score_fake": 0.571,
+        "confidence": 0.828
+      },
+      "agents": {
+        "style": {
+          "status": "ok",
+          "score_fake": 0.557,
+          "confidence": 0.762
+        },
+        "physics": {
+          "status": "ok",
+          "score_fake": 0.666,
+          "confidence": 0.739
+        },
+        "spatial": {
+          "status": "ok",
+          "score_fake": 0.568,
+          "confidence": 0.724
+        },
+        "temporal": {
+          "status": "ok",
+          "score_fake": 0.597,
+          "confidence": 0.819
+        },
+        "watermark": {
+          "status": "ok",
+          "score_fake": 0.698,
+          "confidence": 0.648
+        }
+      }
+    },
+    {
+      "id": "516f6dade648",
+      "title": "Mission accomplished? The 2003 boast that haunts today's Iran conflict",
+      "source": "bbc.com",
+      "source_url": "https://www.bbc.com/news/articles/c1e9yy84we8o?at_medium=RSS&at_campaign=rss",
+      "video_url": null,
+      "description": "The echoes between the conflicts are certainly there but there are also profound differences.",
+      "pub_date": "Fri, 13 Mar 2026 00:04:03 GMT",
+      "crawled_at": "2026-03-26T07:21:17.382282+00:00",
+      "thumbnail": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/7df7/live/48199650-1c94-11f1-b048-c9424b2cf5fd.jpg",
+      "verdict": {
+        "label": "uncertain",
+        "score_fake": 0.441,
+        "confidence": 0.788
+      },
+      "agents": {
+        "style": {
+          "status": "ok",
+          "score_fake": 0.551,
+          "confidence": 0.848
+        },
+        "physics": {
+          "status": "ok",
+          "score_fake": 0.568,
+          "confidence": 0.807
+        },
+        "spatial": {
+          "status": "ok",
+          "score_fake": 0.342,
+          "confidence": 0.765
+        },
+        "temporal": {
+          "status": "ok",
+          "score_fake": 0.363,
+          "confidence": 0.8
+        },
+        "watermark": {
+          "status": "ok",
+          "score_fake": 0.583,
+          "confidence": 0.788
+        }
+      }
+    },
+    {
+      "id": "45b82ad9f95a",
+      "title": "'There's no hiding place on a ship': The sailors stranded near Iran",
+      "source": "bbc.com",
+      "source_url": "https://www.bbc.com/news/articles/ce3g0vz223no?at_medium=RSS&at_campaign=rss",
+      "video_url": null,
+      "description": "Drones, cruise missiles and fighter jets have become a common sight for many sailors stranded on ships in the Gulf.",
+      "pub_date": "Fri, 13 Mar 2026 01:47:54 GMT",
+      "crawled_at": "2026-03-26T07:21:17.382282+00:00",
+      "thumbnail": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/8278/live/dbf69dd0-1ec1-11f1-801d-ed3cff6bf876.jpg",
+      "verdict": {
+        "label": "uncertain",
+        "score_fake": 0.582,
+        "confidence": 0.798
+      },
+      "agents": {
+        "style": {
+          "status": "ok",
+          "score_fake": 0.659,
+          "confidence": 0.787
+        },
+        "physics": {
+          "status": "ok",
+          "score_fake": 0.547,
+          "confidence": 0.545
+        },
+        "spatial": {
+          "status": "ok",
+          "score_fake": 0.577,
+          "confidence": 0.627
+        },
+        "temporal": {
+          "status": "ok",
+          "score_fake": 0.598,
+          "confidence": 0.688
+        },
+        "watermark": {
+          "status": "ok",
+          "score_fake": 0.517,
+          "confidence": 0.845
+        }
+      }
+    },
+    {
+      "id": "777b3a394fcb",
+      "title": "Iranians react to new supreme leader's first address",
+      "source": "bbc.com",
+      "source_url": "https://www.bbc.com/news/articles/czj1z0enk70o?at_medium=RSS&at_campaign=rss",
+      "video_url": null,
+      "description": "People in Iran are questioning who's really in charge after Mojtaba Khamenei's first address came via a presenter on state TV.",
+      "pub_date": "Fri, 13 Mar 2026 15:53:48 GMT",
+      "crawled_at": "2026-03-26T07:21:17.382282+00:00",
+      "thumbnail": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/5bc7/live/4a92b800-1ed6-11f1-801d-ed3cff6bf876.jpg",
+      "verdict": {
+        "label": "fake",
+        "score_fake": 0.809,
+        "confidence": 0.79
+      },
+      "agents": {
+        "style": {
+          "status": "ok",
+          "score_fake": 0.849,
+          "confidence": 0.667
+        },
+        "physics": {
+          "status": "ok",
+          "score_fake": 0.869,
+          "confidence": 0.613
+        },
+        "spatial": {
+          "status": "ok",
+          "score_fake": 0.796,
+          "confidence": 0.914
+        },
+        "temporal": {
+          "status": "ok",
+          "score_fake": 0.705,
+          "confidence": 0.871
+        },
+        "watermark": {
+          "status": "ok",
+          "score_fake": 0.866,
+          "confidence": 0.612
+        }
+      }
+    },
+    {
+      "id": "20b4424d408c",
+      "title": "'What if we're left with ruins?': Doubts creep in for Iranians who supported war",
+      "source": "bbc.com",
+      "source_url": "https://www.bbc.com/news/articles/c3094g50rnvo?at_medium=RSS&at_campaign=rss",
+      "video_url": null,
+      "description": "Teachers, engineers and shopkeepers tell the BBC they fear Iran falling into chaos.",
+      "pub_date": "Thu, 12 Mar 2026 12:49:14 GMT",
+      "crawled_at": "2026-03-26T07:21:17.382282+00:00",
+      "thumbnail": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/b99e/live/f9e96ec0-1e09-11f1-b2b0-1752c6d93b6f.jpg",
+      "verdict": {
+        "label": "fake",
+        "score_fake": 0.823,
+        "confidence": 0.814
+      },
+      "agents": {
+        "style": {
+          "status": "ok",
+          "score_fake": 0.689,
+          "confidence": 0.945
+        },
+        "physics": {
+          "status": "ok",
+          "score_fake": 0.725,
+          "confidence": 0.535
+        },
+        "spatial": {
+          "status": "ok",
+          "score_fake": 0.764,
+          "confidence": 0.942
+        },
+        "temporal": {
+          "status": "ok",
+          "score_fake": 0.734,
+          "confidence": 0.638
+        },
+        "watermark": {
+          "status": "ok",
+          "score_fake": 0.834,
+          "confidence": 0.612
+        }
+      }
+    },
+    {
+      "id": "0ff08565da80",
+      "title": "How Iran war laid bare the world's reliance on Gulf oil and gas",
+      "source": "bbc.com",
+      "source_url": "https://www.bbc.com/news/articles/c15x1y8d37vo?at_medium=RSS&at_campaign=rss",
+      "video_url": null,
+      "description": "Countries around the world are feeling the impact of the conflict and the resulting energy price shock.",
+      "pub_date": "Thu, 12 Mar 2026 13:57:56 GMT",
+      "crawled_at": "2026-03-26T07:21:17.382282+00:00",
+      "thumbnail": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/8f51/live/d65ed2b0-1e0e-11f1-b2b0-1752c6d93b6f.jpg",
+      "verdict": {
+        "label": "real",
+        "score_fake": 0.132,
+        "confidence": 0.881
+      },
+      "agents": {
+        "style": {
+          "status": "ok",
+          "score_fake": 0.163,
+          "confidence": 0.889
+        },
+        "physics": {
+          "status": "ok",
+          "score_fake": 0.079,
+          "confidence": 0.595
+        },
+        "spatial": {
+          "status": "ok",
+          "score_fake": 0.097,
+          "confidence": 0.546
+        },
+        "temporal": {
+          "status": "ok",
+          "score_fake": 0.12,
+          "confidence": 0.755
+        },
+        "watermark": {
+          "status": "ok",
+          "score_fake": 0.061,
+          "confidence": 0.886
+        }
+      }
+    },
+    {
+      "id": "43dace71c7cb",
+      "title": "In maps: Attacks across the Middle East",
+      "source": "bbc.com",
+      "source_url": "https://www.bbc.com/news/articles/c4g0pnnj8xyo?at_medium=RSS&at_campaign=rss",
+      "video_url": null,
+      "description": "The US-Israel war with Iran has seen continued attacks on Tehran and the Gulf states as Trump postpones his threat to strike Iranian power plants.",
+      "pub_date": "Mon, 23 Mar 2026 17:21:31 GMT",
+      "crawled_at": "2026-03-26T07:21:17.382282+00:00",
+      "thumbnail": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/db76/live/1545af90-2453-11f1-b297-95b0a0a8331e.png",
+      "verdict": {
+        "label": "real",
+        "score_fake": 0.165,
+        "confidence": 0.684
+      },
+      "agents": {
+        "style": {
+          "status": "ok",
+          "score_fake": 0.046,
+          "confidence": 0.935
+        },
+        "physics": {
+          "status": "ok",
+          "score_fake": 0.09,
+          "confidence": 0.611
+        },
+        "spatial": {
+          "status": "ok",
+          "score_fake": 0.107,
+          "confidence": 0.803
+        },
+        "temporal": {
+          "status": "ok",
+          "score_fake": 0.198,
+          "confidence": 0.9
+        },
+        "watermark": {
+          "status": "ok",
+          "score_fake": 0.243,
+          "confidence": 0.597
+        }
+      }
+    },
+    {
+      "id": "d677d43d0ec7",
+      "title": "US is 'negotiating with itself' says Iranian military following Trump comments",
+      "source": "bbc.com",
+      "source_url": "https://www.bbc.com/news/videos/cre173jep58o?at_medium=RSS&at_campaign=rss",
+      "video_url": null,
+      "description": "The comments from the Iranian military come following Donald Trump's claim that Iran wanted a deal \"so bad\"",
+      "pub_date": "Wed, 25 Mar 2026 11:25:17 GMT",
+      "crawled_at": "2026-03-26T07:21:17.382282+00:00",
+      "thumbnail": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/5475/live/8728e580-2838-11f1-b297-95b0a0a8331e.jpg",
+      "verdict": {
+        "label": "uncertain",
+        "score_fake": 0.575,
+        "confidence": 0.856
+      },
+      "agents": {
+        "style": {
+          "status": "ok",
+          "score_fake": 0.54,
+          "confidence": 0.942
+        },
+        "physics": {
+          "status": "ok",
+          "score_fake": 0.671,
+          "confidence": 0.799
+        },
+        "spatial": {
+          "status": "ok",
+          "score_fake": 0.652,
+          "confidence": 0.943
+        },
+        "temporal": {
+          "status": "ok",
+          "score_fake": 0.495,
+          "confidence": 0.639
+        },
+        "watermark": {
+          "status": "ok",
+          "score_fake": 0.561,
+          "confidence": 0.719
+        }
+      }
+    },
+    {
+      "id": "40601f59b90c",
+      "title": "Trump says Iran gave the US a 'present', but won't say what it is",
+      "source": "bbc.com",
+      "source_url": "https://www.bbc.com/news/videos/cm29l8y8n44o?at_medium=RSS&at_campaign=rss",
+      "video_url": null,
+      "description": "Donald Trump gave the update on Tuesday as the US-Israeli war with Iran entered its fourth week.",
+      "pub_date": "Wed, 25 Mar 2026 09:35:50 GMT",
+      "crawled_at": "2026-03-26T07:21:17.382282+00:00",
+      "thumbnail": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/7edf/live/ef5a54f0-282d-11f1-b289-fd2d6419405a.jpg",
+      "verdict": {
+        "label": "real",
+        "score_fake": 0.142,
+        "confidence": 0.809
+      },
+      "agents": {
+        "style": {
+          "status": "ok",
+          "score_fake": 0.161,
+          "confidence": 0.565
+        },
+        "physics": {
+          "status": "ok",
+          "score_fake": 0.014,
+          "confidence": 0.907
+        },
+        "spatial": {
+          "status": "ok",
+          "score_fake": 0.11,
+          "confidence": 0.828
+        },
+        "temporal": {
+          "status": "ok",
+          "score_fake": 0.105,
+          "confidence": 0.653
+        },
+        "watermark": {
+          "status": "ok",
+          "score_fake": 0.192,
+          "confidence": 0.596
+        }
+      }
+    },
+    {
+      "id": "a77e78b70248",
+      "title": "Watch: BBC at site of Iranian strike in Tel Aviv",
+      "source": "bbc.com",
+      "source_url": "https://www.bbc.com/news/videos/cp3l5vr1q0no?at_medium=RSS&at_campaign=rss",
+      "video_url": null,
+      "description": "The BBC's James Waterhouse is in central Tel Aviv, where Iranian strikes have hit \"several impact sites\", according to police.",
+      "pub_date": "Tue, 24 Mar 2026 11:31:56 GMT",
+      "crawled_at": "2026-03-26T07:21:17.382282+00:00",
+      "thumbnail": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/ce5a/live/f29b40a0-2794-11f1-a79a-77e93010d956.jpg",
+      "verdict": {
+        "label": "uncertain",
+        "score_fake": 0.46,
+        "confidence": 0.551
+      },
+      "agents": {
+        "style": {
+          "status": "ok",
+          "score_fake": 0.412,
+          "confidence": 0.838
+        },
+        "physics": {
+          "status": "ok",
+          "score_fake": 0.488,
+          "confidence": 0.62
+        },
+        "spatial": {
+          "status": "ok",
+          "score_fake": 0.586,
+          "confidence": 0.916
+        },
+        "temporal": {
+          "status": "ok",
+          "score_fake": 0.383,
+          "confidence": 0.87
+        },
+        "watermark": {
+          "status": "ok",
+          "score_fake": 0.373,
+          "confidence": 0.563
+        }
+      }
+    },
+    {
+      "id": "244a8a3f5a40",
+      "title": "Why there's no sign of the conflict in the Middle East 'winding down'",
+      "source": "bbc.com",
+      "source_url": "https://www.bbc.com/news/videos/cwywlv9ked0o?at_medium=RSS&at_campaign=rss",
+      "video_url": null,
+      "description": "Iran's foreign minister said that it doesn't appear that the US is prepared to halt its aggression after President Trump said the US was considering \"winding down\" its war.",
+      "pub_date": "Sat, 21 Mar 2026 17:52:25 GMT",
+      "crawled_at": "2026-03-26T07:21:17.382282+00:00",
+      "thumbnail": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/6b52/live/6204f0c0-2548-11f1-a79a-77e93010d956.jpg",
+      "verdict": {
+        "label": "fake",
+        "score_fake": 0.822,
+        "confidence": 0.763
+      },
+      "agents": {
+        "style": {
+          "status": "ok",
+          "score_fake": 0.677,
+          "confidence": 0.94
+        },
+        "physics": {
+          "status": "ok",
+          "score_fake": 0.901,
+          "confidence": 0.895
+        },
+        "spatial": {
+          "status": "ok",
+          "score_fake": 0.845,
+          "confidence": 0.582
+        },
+        "temporal": {
+          "status": "ok",
+          "score_fake": 0.781,
+          "confidence": 0.808
+        },
+        "watermark": {
+          "status": "ok",
+          "score_fake": 0.775,
+          "confidence": 0.558
+        }
+      }
+    },
+    {
+      "id": "7a980563dd2f",
+      "title": "Ros Atkins on... Trump's mixed messages on the war",
+      "source": "bbc.com",
+      "source_url": "https://www.bbc.com/news/videos/c747lk0geldo?at_medium=RSS&at_campaign=rss",
+      "video_url": null,
+      "description": "The BBC’s Analysis Editor looks at President Trump’s mixed messages on the war with Iran.",
+      "pub_date": "Thu, 19 Mar 2026 20:58:34 GMT",
+      "crawled_at": "2026-03-26T07:21:17.382282+00:00",
+      "thumbnail": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/4b27/live/534ffbc0-23cb-11f1-a79a-77e93010d956.jpg",
+      "verdict": {
+        "label": "real",
+        "score_fake": 0.191,
+        "confidence": 0.928
+      },
+      "agents": {
+        "style": {
+          "status": "ok",
+          "score_fake": 0.273,
+          "confidence": 0.589
+        },
+        "physics": {
+          "status": "ok",
+          "score_fake": 0.057,
+          "confidence": 0.919
+        },
+        "spatial": {
+          "status": "ok",
+          "score_fake": 0.09,
+          "confidence": 0.696
+        },
+        "temporal": {
+          "status": "ok",
+          "score_fake": 0.284,
+          "confidence": 0.518
+        },
+        "watermark": {
+          "status": "ok",
+          "score_fake": 0.092,
+          "confidence": 0.552
+        }
+      }
+    }
+  ]
+}

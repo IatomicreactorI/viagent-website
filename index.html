@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viagent — AI Video Authenticity Detection</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+    <style>
+        :root {
+            --bg: #0a0e17;
+            --bg-card: #111827;
+            --bg-card-hover: #1a2332;
+            --bg-video: #0d1220;
+            --border: #1e293b;
+            --text: #e2e8f0;
+            --text-dim: #94a3b8;
+            --text-muted: #64748b;
+            --accent: #3b82f6;
+            --green: #10b981;
+            --green-bg: rgba(16,185,129,0.1);
+            --red: #ef4444;
+            --red-bg: rgba(239,68,68,0.1);
+            --yellow: #f59e0b;
+            --yellow-bg: rgba(245,158,11,0.1);
+            --radius: 12px;
+            --radius-sm: 8px;
+            --shadow: 0 4px 24px rgba(0,0,0,0.3);
+            --font: 'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;
+        }
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh;overflow-x:hidden}
+        body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse at 20% 10%,rgba(59,130,246,.05) 0%,transparent 50%),radial-gradient(ellipse at 80% 90%,rgba(16,185,129,.03) 0%,transparent 50%);pointer-events:none;z-index:0}
+        .container{max-width:1400px;margin:0 auto;padding:0 24px;position:relative;z-index:1}
+
+        /* ── Header ──────────────────────────────── */
+        header{border-bottom:1px solid var(--border);padding:12px 0;position:sticky;top:0;background:rgba(10,14,23,.88);backdrop-filter:blur(20px);z-index:100}
+        .hdr{display:flex;align-items:center;justify-content:space-between}
+        .logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+        .logo-icon{width:32px;height:32px;background:linear-gradient(135deg,var(--accent),#8b5cf6);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px}
+        .logo-txt{font-size:18px;font-weight:700;color:var(--text);letter-spacing:-.5px}
+        .logo-txt span{color:var(--accent)}
+        .hdr-right{display:flex;align-items:center;gap:16px}
+        .lang-toggle{display:flex;border:1px solid var(--border);border-radius:6px;overflow:hidden;font-size:12px}
+        .lang-btn{padding:5px 12px;background:transparent;border:none;color:var(--text-muted);cursor:pointer;font-family:var(--font);font-weight:500;transition:all .2s}
+        .lang-btn.active{background:var(--accent);color:#fff}
+        .hdr-dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 2s ease-in-out infinite}
+        .hdr-time{font-size:12px;color:var(--text-muted)}
+        @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+
+        /* ── Stats row ───────────────────────────── */
+        .stats{display:flex;gap:12px;margin:20px 0;flex-wrap:wrap}
+        .st{flex:1;min-width:120px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-sm);padding:14px 18px;text-align:center;transition:all .3s}
+        .st:hover{border-color:var(--accent);transform:translateY(-1px)}
+        .st-n{font-size:26px;font-weight:800;margin-bottom:2px}
+        .st-l{font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.4px}
+        .st.fake .st-n{color:var(--red)}.st.real .st-n{color:var(--green)}.st.unc .st-n{color:var(--yellow)}.st.total .st-n{color:var(--accent)}
+
+        /* ── Filter bar ──────────────────────────── */
+        .fbar{display:flex;align-items:center;gap:10px;margin:16px 0 20px;flex-wrap:wrap}
+        .fbtn{padding:6px 16px;border-radius:18px;border:1px solid var(--border);background:transparent;color:var(--text-dim);font-size:12px;font-weight:500;cursor:pointer;transition:all .2s;font-family:var(--font)}
+        .fbtn:hover{border-color:var(--accent);color:var(--text)}
+        .fbtn.active{background:var(--accent);border-color:var(--accent);color:#fff}
+        .sbox{flex:1;min-width:180px;padding:6px 14px;border-radius:18px;border:1px solid var(--border);background:var(--bg-card);color:var(--text);font-size:12px;outline:none;font-family:var(--font);transition:border-color .2s}
+        .sbox::placeholder{color:var(--text-muted)}.sbox:focus{border-color:var(--accent)}
+
+        /* ── Video list (left-right layout) ──────── */
+        .vlist{display:flex;flex-direction:column;gap:20px;padding-bottom:60px}
+
+        .vcard{
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            background:var(--bg-card);
+            border:1px solid var(--border);
+            border-radius:var(--radius);
+            overflow:hidden;
+            transition:all .3s;
+        }
+        .vcard:hover{border-color:rgba(59,130,246,.3);box-shadow:var(--shadow);transform:translateY(-1px)}
+
+        /* Left: video area */
+        .vcard-left{
+            background:var(--bg-video);
+            display:flex;
+            flex-direction:column;
+            min-height:260px;
+        }
+        .video-embed{
+            flex:1;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            position:relative;
+            overflow:hidden;
+        }
+        .video-embed iframe,.video-embed video{width:100%;height:100%;border:none}
+        .video-placeholder{
+            display:flex;flex-direction:column;align-items:center;justify-content:center;
+            width:100%;height:100%;gap:10px;padding:24px;text-align:center;
+        }
+        .video-placeholder .vp-icon{font-size:40px;opacity:.4}
+        .video-placeholder .vp-title{font-size:13px;font-weight:600;line-height:1.5;color:var(--text-dim);max-width:90%}
+        .video-placeholder .vp-src{font-size:11px;color:var(--text-muted)}
+        .video-placeholder .vp-link{
+            margin-top:6px;font-size:11px;padding:4px 14px;
+            border-radius:14px;border:1px solid var(--border);
+            color:var(--accent);text-decoration:none;transition:all .2s;
+        }
+        .video-placeholder .vp-link:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+        .thumb-img{
+            width:100%;height:100%;object-fit:cover;display:block;
+            transition:transform .4s ease;
+        }
+        .video-embed:hover .thumb-img{transform:scale(1.03)}
+        .thumb-overlay{
+            position:absolute;inset:0;display:flex;flex-direction:column;
+            align-items:center;justify-content:flex-end;
+            background:linear-gradient(0deg,rgba(0,0,0,.6) 0%,transparent 50%);
+            padding:16px;pointer-events:none;
+        }
+        .thumb-overlay .to-src{font-size:11px;color:rgba(255,255,255,.7)}
+        .thumb-link{
+            position:absolute;top:12px;right:12px;font-size:11px;padding:3px 10px;
+            border-radius:12px;background:rgba(0,0,0,.5);backdrop-filter:blur(6px);
+            color:var(--accent);text-decoration:none;pointer-events:auto;transition:all .2s;
+        }
+        .thumb-link:hover{background:var(--accent);color:#fff}
+        .video-date{padding:8px 16px;font-size:11px;color:var(--text-muted);border-top:1px solid var(--border);display:flex;align-items:center;gap:6px}
+
+        /* Right: result area */
+        .vcard-right{
+            padding:20px 24px;
+            display:flex;flex-direction:column;
+            border-left:1px solid var(--border);
+        }
+
+        .vr-header{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:10px}
+        .vr-title{font-size:15px;font-weight:600;line-height:1.5;flex:1}
+        .badge{padding:3px 12px;border-radius:16px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.4px;white-space:nowrap;flex-shrink:0}
+        .badge.fake{background:var(--red-bg);color:var(--red);border:1px solid rgba(239,68,68,.2)}
+        .badge.real{background:var(--green-bg);color:var(--green);border:1px solid rgba(16,185,129,.2)}
+        .badge.uncertain{background:var(--yellow-bg);color:var(--yellow);border:1px solid rgba(245,158,11,.2)}
+
+        .vr-desc{font-size:13px;color:var(--text-dim);line-height:1.6;margin-bottom:12px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+
+        /* Verdict gauge */
+        .vr-gauge{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+        .g-ring{width:56px;height:56px;position:relative;flex-shrink:0}
+        .g-ring svg{transform:rotate(-90deg);width:56px;height:56px}
+        .g-ring .g-bg{fill:none;stroke:rgba(255,255,255,.05);stroke-width:5}
+        .g-ring .g-fill{fill:none;stroke-width:5;stroke-linecap:round;transition:stroke-dashoffset .8s ease}
+        .g-val{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700}
+        .g-text{font-size:12px;color:var(--text-dim);line-height:1.6}
+        .g-text b{color:var(--text)}
+
+        /* Agent bars */
+        .agents{display:flex;flex-direction:column;gap:6px;flex:1}
+        .ag-row{display:flex;align-items:center;gap:8px}
+        .ag-name{width:70px;font-size:11px;color:var(--text-muted);font-weight:500}
+        .ag-bar{flex:1;height:6px;background:rgba(255,255,255,.04);border-radius:3px;overflow:hidden}
+        .ag-fill{height:100%;border-radius:3px;transition:width .8s ease}
+        .ag-val{width:36px;text-align:right;font-size:12px;font-weight:600}
+
+        .vr-meta{margin-top:auto;padding-top:10px;border-top:1px solid var(--border);font-size:11px;color:var(--text-muted);display:flex;gap:12px;flex-wrap:wrap}
+
+        /* ── Footer ──────────────────────────────── */
+        footer{border-top:1px solid var(--border);padding:24px 0;text-align:center;color:var(--text-muted);font-size:12px}
+
+        /* ── Loading & Empty ─────────────────────── */
+        .loading{display:flex;flex-direction:column;align-items:center;padding:80px 0;gap:14px}
+        .spinner{width:36px;height:36px;border:3px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:spin .8s linear infinite}
+        @keyframes spin{to{transform:rotate(360deg)}}
+        .empty{text-align:center;padding:80px 0;color:var(--text-muted)}.empty .e-icon{font-size:44px;margin-bottom:12px}
+
+        /* ── Responsive ──────────────────────────── */
+        @media(max-width:900px){
+            .vcard{grid-template-columns:1fr}
+            .vcard-left{min-height:180px}
+            .vcard-right{border-left:none;border-top:1px solid var(--border)}
+            .stats{gap:8px}
+            .st{min-width:80px;padding:10px 12px}.st-n{font-size:20px}
+        }
+        @media(max-width:540px){
+            .stats{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+            .hdr-time{display:none}
+        }
+
+        ::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
+    </style>
+</head>
+<body>
+
+<header>
+<div class="container hdr">
+    <a class="logo" href="#">
+        <div class="logo-icon">🛡️</div>
+        <div class="logo-txt">Vi<span>agent</span></div>
+    </a>
+    <div class="hdr-right">
+        <div class="lang-toggle">
+            <button class="lang-btn active" data-lang="zh">中文</button>
+            <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+        <div class="hdr-dot"></div>
+        <span class="hdr-time" id="updateTime"></span>
+    </div>
+</div>
+</header>
+
+<div class="container">
+    <!-- Stats -->
+    <div class="stats">
+        <div class="st total"><div class="st-n" id="sTotal">—</div><div class="st-l" data-i="s_total">视频总数</div></div>
+        <div class="st fake"><div class="st-n" id="sFake">—</div><div class="st-l" data-i="s_fake">检测为伪造</div></div>
+        <div class="st real"><div class="st-n" id="sReal">—</div><div class="st-l" data-i="s_real">检测为真实</div></div>
+        <div class="st unc"><div class="st-n" id="sUnc">—</div><div class="st-l" data-i="s_unc">尚不确定</div></div>
+    </div>
+
+    <!-- Filters -->
+    <div class="fbar">
+        <button class="fbtn active" data-filter="all" data-i="f_all">全部</button>
+        <button class="fbtn" data-filter="fake" data-i="f_fake">🔴 伪造</button>
+        <button class="fbtn" data-filter="real" data-i="f_real">🟢 真实</button>
+        <button class="fbtn" data-filter="uncertain" data-i="f_unc">🟡 不确定</button>
+        <input class="sbox" id="searchInput" data-i-placeholder="search_ph" placeholder="🔍 搜索标题或来源...">
+    </div>
+
+    <!-- Video list -->
+    <div class="vlist" id="vlist">
+        <div class="loading"><div class="spinner"></div><span style="color:var(--text-muted)" data-i="loading">正在加载...</span></div>
+    </div>
+</div>
+
+<footer>
+<div class="container">
+    <p data-i="footer1">Viagent — 多智能体 AI 视频真伪检测系统 · Style / Physics / Spatial / Temporal / Watermark</p>
+    <p style="margin-top:6px" data-i="footer2">数据仅供参考，不代表最终事实认定</p>
+</div>
+</footer>
+
+<script>
+(function(){
+'use strict';
+
+/* ═══════════════════ i18n ═══════════════════ */
+const I18N = {
+zh: {
+    s_total:'视频总数', s_fake:'检测为伪造', s_real:'检测为真实', s_unc:'尚不确定',
+    f_all:'全部', f_fake:'🔴 伪造', f_real:'🟢 真实', f_unc:'🟡 不确定',
+    search_ph:'🔍 搜索标题或来源...',
+    loading:'正在加载...',
+    empty:'没有找到匹配的结果',
+    nodata:'数据加载失败，请先运行爬虫',
+    updated:'最近更新',
+    just_now:'刚刚',
+    hours_ago:'{n} 小时前',
+    days_ago:'{n} 天前',
+    fake_prob:'伪造概率',
+    confidence:'置信度',
+    source_label:'来源',
+    view_source:'查看原文',
+    verdict_fake:'伪造', verdict_real:'真实', verdict_uncertain:'不确定',
+    ag_style:'风格分析', ag_physics:'物理定律', ag_spatial:'空间特征', ag_temporal:'时序一致', ag_watermark:'水印检测',
+    footer1:'Viagent — 多智能体 AI 视频真伪检测系统 · Style / Physics / Spatial / Temporal / Watermark',
+    footer2:'数据仅供参考，不代表最终事实认定',
+    page_title:'Viagent — AI 视频真伪检测平台',
+},
+en: {
+    s_total:'Total Videos', s_fake:'Detected Fake', s_real:'Detected Real', s_unc:'Uncertain',
+    f_all:'All', f_fake:'🔴 Fake', f_real:'🟢 Real', f_unc:'🟡 Uncertain',
+    search_ph:'🔍 Search title or source...',
+    loading:'Loading...',
+    empty:'No matching results found',
+    nodata:'Failed to load data. Run the crawler first.',
+    updated:'Last updated',
+    just_now:'Just now',
+    hours_ago:'{n}h ago',
+    days_ago:'{n}d ago',
+    fake_prob:'Fake probability',
+    confidence:'Confidence',
+    source_label:'Source',
+    view_source:'View source',
+    verdict_fake:'Fake', verdict_real:'Real', verdict_uncertain:'Uncertain',
+    ag_style:'Style', ag_physics:'Physics', ag_spatial:'Spatial', ag_temporal:'Temporal', ag_watermark:'Watermark',
+    footer1:'Viagent — Multi-Agent AI Video Authenticity Detection · Style / Physics / Spatial / Temporal / Watermark',
+    footer2:'Results are for reference only and do not constitute a final determination of fact.',
+    page_title:'Viagent — AI Video Authenticity Detection',
+}
+};
+
+let lang = localStorage.getItem('viagent_lang') || 'zh';
+const t = (k) => (I18N[lang] && I18N[lang][k]) || k;
+
+function applyLang(){
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+    document.title = t('page_title');
+    document.querySelectorAll('[data-i]').forEach(el => { el.textContent = t(el.dataset.i); });
+    document.querySelectorAll('[data-i-placeholder]').forEach(el => { el.placeholder = t(el.dataset.iPlaceholder || el.getAttribute('data-i-placeholder')); });
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+}
+
+document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        lang = btn.dataset.lang;
+        localStorage.setItem('viagent_lang', lang);
+        applyLang();
+        renderList();
+        updateTimeDisplay();
+    });
+});
+
+/* ═══════════════════ Data ═══════════════════ */
+const DATA_URL = 'data/results.json';
+let allData = [];
+let currentFilter = 'all';
+let generatedAt = null;
+
+function scoreColor(s){ return s>=.7?'var(--red)':s<=.3?'var(--green)':'var(--yellow)'; }
+function verdictText(l){ return t('verdict_'+l) || l; }
+function verdictIcon(l){ return {fake:'🔴',real:'🟢',uncertain:'🟡'}[l]||'⚪'; }
+
+function formatDate(ds){
+    if(!ds) return '';
+    try{
+        const d=new Date(ds); if(isNaN(d.getTime())) return ds;
+        const diff=Date.now()-d, h=Math.floor(diff/36e5);
+        if(h<1) return t('just_now');
+        if(h<24) return t('hours_ago').replace('{n}',h);
+        const days=Math.floor(h/24);
+        if(days<30) return t('days_ago').replace('{n}',days);
+        return d.toLocaleDateString(lang==='zh'?'zh-CN':'en-US');
+    }catch(e){return ds;}
+}
+
+function fmtDateFull(ds){
+    if(!ds)return '';
+    try{
+        const d=new Date(ds); if(isNaN(d.getTime()))return ds;
+        const opts = lang==='zh'
+            ? {year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit'}
+            : {year:'numeric',month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'};
+        return d.toLocaleDateString(lang==='zh'?'zh-CN':'en-US',opts);
+    }catch(e){return ds;}
+}
+
+function esc(s){const d=document.createElement('div');d.textContent=s;return d.innerHTML;}
+
+function updateTimeDisplay(){
+    const el=document.getElementById('updateTime');
+    if(generatedAt) el.textContent=t('updated')+': '+formatDate(generatedAt);
+}
+
+/* ═══════════════════ Load ═══════════════════ */
+async function loadData(){
+    try{
+        const r=await fetch(DATA_URL); if(!r.ok)throw new Error(r.status);
+        const d=await r.json();
+        allData=(d.items||[]).slice();
+        generatedAt=d.generated_at;
+        // sort by pub_date descending (newest first)
+        allData.sort((a,b)=>{
+            const da=new Date(a.pub_date||0), db=new Date(b.pub_date||0);
+            return db-da;
+        });
+        updateTimeDisplay();
+        updateStats();
+        renderList();
+    }catch(e){
+        console.error(e);
+        document.getElementById('vlist').innerHTML=`<div class="empty"><div class="e-icon">📡</div><p>${t('nodata')}</p><p style="margin-top:6px;font-size:12px">python website/crawler.py</p></div>`;
+    }
+}
+
+/* ═══════════════════ Stats ══════════════════ */
+function updateStats(){
+    anim('sTotal',allData.length);
+    anim('sFake',allData.filter(d=>d.verdict.label==='fake').length);
+    anim('sReal',allData.filter(d=>d.verdict.label==='real').length);
+    anim('sUnc',allData.filter(d=>d.verdict.label==='uncertain').length);
+}
+function anim(id,tgt){
+    const el=document.getElementById(id);let c=0;const s=Math.max(1,Math.ceil(tgt/25));
+    const t=setInterval(()=>{c+=s;if(c>=tgt){c=tgt;clearInterval(t)}el.textContent=c;},25);
+}
+
+/* ═══════════════════ Render ═════════════════ */
+function renderList(){
+    const q=document.getElementById('searchInput').value.toLowerCase().trim();
+    let items=allData;
+    if(currentFilter!=='all') items=items.filter(d=>d.verdict.label===currentFilter);
+    if(q) items=items.filter(d=>(d.title||'').toLowerCase().includes(q)||(d.source||'').toLowerCase().includes(q)||(d.description||'').toLowerCase().includes(q));
+
+    const el=document.getElementById('vlist');
+    if(!items.length){el.innerHTML=`<div class="empty"><div class="e-icon">🔍</div><p>${t('empty')}</p></div>`;return;}
+
+    const agNames=['style','physics','spatial','temporal','watermark'];
+    const agKeys =['ag_style','ag_physics','ag_spatial','ag_temporal','ag_watermark'];
+    const agIcons=['🎨','⚡','🔲','🕐','💧'];
+    const circ=2*Math.PI*22;
+
+    el.innerHTML=items.map(item=>{
+        const v=item.verdict, ag=item.agents||{};
+        const pct=(v.score_fake*100).toFixed(0);
+        const off=circ*(1-v.score_fake);
+        // Left side: thumbnail image or fallback placeholder
+        let leftContent;
+        if(item.thumbnail){
+            leftContent=`<img class="thumb-img" src="${esc(item.thumbnail)}" alt="" loading="lazy" onerror="this.parentElement.innerHTML='<div class=video-placeholder><div class=vp-icon>🎬</div><div class=vp-title>${esc(item.title).replace(/'/g,"&#39;")}</div></div>'">
+            <div class="thumb-overlay"><span class="to-src">${esc(item.source||'')}</span></div>
+            ${item.source_url?`<a class="thumb-link" href="${esc(item.source_url)}" target="_blank" rel="noopener noreferrer">${t('view_source')} →</a>`:''}`;
+        } else if(item.video_url){
+            leftContent=`<video controls preload="metadata"><source src="${esc(item.video_url)}" type="video/mp4"></video>`;
+        } else {
+            leftContent=`<div class="video-placeholder">
+                <div class="vp-icon">🎬</div>
+                <div class="vp-title">${esc(item.title)}</div>
+                <div class="vp-src">${esc(item.source||'')}</div>
+                ${item.source_url?`<a class="vp-link" href="${esc(item.source_url)}" target="_blank" rel="noopener noreferrer">${t('view_source')} →</a>`:''}
+            </div>`;
+        }
+        return `
+<div class="vcard">
+  <div class="vcard-left">
+    <div class="video-embed">${leftContent}</div>
+    <div class="video-date">🕐 ${fmtDateFull(item.pub_date)}</div>
+  </div>
+  <div class="vcard-right">
+    <div class="vr-header">
+      <div class="vr-title">${esc(item.title)}</div>
+      <div class="badge ${v.label}">${verdictIcon(v.label)} ${verdictText(v.label)}</div>
+    </div>
+    <div class="vr-desc">${esc(item.description||'')}</div>
+    <div class="vr-gauge">
+      <div class="g-ring">
+        <svg viewBox="0 0 56 56"><circle class="g-bg" cx="28" cy="28" r="22"/><circle class="g-fill" cx="28" cy="28" r="22" stroke="${scoreColor(v.score_fake)}" stroke-dasharray="${circ}" stroke-dashoffset="${off}"/></svg>
+        <div class="g-val" style="color:${scoreColor(v.score_fake)}">${pct}%</div>
+      </div>
+      <div class="g-text"><b>${t('fake_prob')}</b> ${pct}%<br>${t('confidence')} ${(v.confidence*100).toFixed(0)}%</div>
+    </div>
+    <div class="agents">
+      ${agNames.map((n,i)=>{
+          const a=ag[n]; if(!a)return '';
+          const p=(a.score_fake*100).toFixed(0);
+          return `<div class="ag-row"><div class="ag-name">${agIcons[i]} ${t(agKeys[i])}</div><div class="ag-bar"><div class="ag-fill" style="width:${p}%;background:${scoreColor(a.score_fake)}"></div></div><div class="ag-val" style="color:${scoreColor(a.score_fake)}">${p}%</div></div>`;
+      }).join('')}
+    </div>
+    <div class="vr-meta">
+      <span>📰 ${t('source_label')}: ${esc(item.source||'—')}</span>
+      ${item.source_url?`<span><a href="${esc(item.source_url)}" target="_blank" rel="noopener noreferrer" style="color:var(--accent);text-decoration:none">${t('view_source')} →</a></span>`:''}
+    </div>
+  </div>
+</div>`;
+    }).join('');
+}
+
+/* ═══════════════════ Events ═════════════════ */
+document.querySelectorAll('.fbtn').forEach(b=>{
+    b.addEventListener('click',()=>{
+        document.querySelectorAll('.fbtn').forEach(x=>x.classList.remove('active'));
+        b.classList.add('active');
+        currentFilter=b.dataset.filter;
+        renderList();
+    });
+});
+document.getElementById('searchInput').addEventListener('input',renderList);
+
+/* ═══════════════════ Init ═══════════════════ */
+applyLang();
+loadData();
+
+})();
+</script>
+</body>
+</html>
