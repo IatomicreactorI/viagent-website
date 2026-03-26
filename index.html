@@ -63,7 +63,7 @@
         .sbox{flex:1;min-width:180px;padding:6px 14px;border-radius:18px;border:1px solid var(--border);background:var(--bg-card);color:var(--text);font-size:12px;outline:none;font-family:var(--font);transition:border-color .2s}
         .sbox::placeholder{color:var(--text-muted)}.sbox:focus{border-color:var(--accent)}
 
-        /* ── Video list (left-right layout) ──────── */
+        /* ── Video list ──────────────────────────── */
         .vlist{display:flex;flex-direction:column;gap:20px;padding-bottom:60px}
 
         .vcard{
@@ -77,7 +77,7 @@
         }
         .vcard:hover{border-color:rgba(59,130,246,.3);box-shadow:var(--shadow);transform:translateY(-1px)}
 
-        /* Left: video area */
+        /* Left: thumbnail area */
         .vcard-left{
             background:var(--bg-video);
             display:flex;
@@ -85,62 +85,45 @@
             min-height:260px;
         }
         .video-embed{
-            flex:1;
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            position:relative;
-            overflow:hidden;
+            flex:1;display:flex;align-items:center;justify-content:center;
+            position:relative;overflow:hidden;
         }
-        .video-embed iframe,.video-embed video{width:100%;height:100%;border:none}
+        .thumb-img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease}
+        .video-embed:hover .thumb-img{transform:scale(1.03)}
+        .thumb-overlay{
+            position:absolute;inset:0;display:flex;flex-direction:column;
+            align-items:flex-start;justify-content:flex-end;
+            background:linear-gradient(0deg,rgba(0,0,0,.7) 0%,transparent 40%);
+            padding:16px;pointer-events:none;
+        }
+        .thumb-overlay .to-path{font-size:11px;color:rgba(255,255,255,.7);font-family:monospace;word-break:break-all}
+        .thumb-overlay .to-label{
+            display:inline-block;margin-top:4px;font-size:10px;padding:2px 8px;border-radius:4px;
+            text-transform:uppercase;letter-spacing:.5px;font-weight:600;
+        }
+        .to-label.lbl-fake{background:rgba(239,68,68,.3);color:#fca5a5}
+        .to-label.lbl-real{background:rgba(16,185,129,.3);color:#6ee7b7}
+        .to-label.lbl-unknown{background:rgba(100,116,139,.3);color:#94a3b8}
         .video-placeholder{
             display:flex;flex-direction:column;align-items:center;justify-content:center;
             width:100%;height:100%;gap:10px;padding:24px;text-align:center;
         }
-        .video-placeholder .vp-icon{font-size:40px;opacity:.4}
-        .video-placeholder .vp-title{font-size:13px;font-weight:600;line-height:1.5;color:var(--text-dim);max-width:90%}
-        .video-placeholder .vp-src{font-size:11px;color:var(--text-muted)}
-        .video-placeholder .vp-link{
-            margin-top:6px;font-size:11px;padding:4px 14px;
-            border-radius:14px;border:1px solid var(--border);
-            color:var(--accent);text-decoration:none;transition:all .2s;
-        }
-        .video-placeholder .vp-link:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
-        .thumb-img{
-            width:100%;height:100%;object-fit:cover;display:block;
-            transition:transform .4s ease;
-        }
-        .video-embed:hover .thumb-img{transform:scale(1.03)}
-        .thumb-overlay{
-            position:absolute;inset:0;display:flex;flex-direction:column;
-            align-items:center;justify-content:flex-end;
-            background:linear-gradient(0deg,rgba(0,0,0,.6) 0%,transparent 50%);
-            padding:16px;pointer-events:none;
-        }
-        .thumb-overlay .to-src{font-size:11px;color:rgba(255,255,255,.7)}
-        .thumb-link{
-            position:absolute;top:12px;right:12px;font-size:11px;padding:3px 10px;
-            border-radius:12px;background:rgba(0,0,0,.5);backdrop-filter:blur(6px);
-            color:var(--accent);text-decoration:none;pointer-events:auto;transition:all .2s;
-        }
-        .thumb-link:hover{background:var(--accent);color:#fff}
+        .video-placeholder .vp-icon{font-size:48px;opacity:.4}
+        .video-placeholder .vp-title{font-size:14px;font-weight:600;line-height:1.5;color:var(--text-dim);max-width:90%}
+        .video-placeholder .vp-path{font-size:11px;color:var(--text-muted);font-family:monospace;word-break:break-all}
         .video-date{padding:8px 16px;font-size:11px;color:var(--text-muted);border-top:1px solid var(--border);display:flex;align-items:center;gap:6px}
 
         /* Right: result area */
         .vcard-right{
-            padding:20px 24px;
-            display:flex;flex-direction:column;
+            padding:20px 24px;display:flex;flex-direction:column;
             border-left:1px solid var(--border);
         }
-
         .vr-header{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:10px}
         .vr-title{font-size:15px;font-weight:600;line-height:1.5;flex:1}
         .badge{padding:3px 12px;border-radius:16px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.4px;white-space:nowrap;flex-shrink:0}
         .badge.fake{background:var(--red-bg);color:var(--red);border:1px solid rgba(239,68,68,.2)}
         .badge.real{background:var(--green-bg);color:var(--green);border:1px solid rgba(16,185,129,.2)}
         .badge.uncertain{background:var(--yellow-bg);color:var(--yellow);border:1px solid rgba(245,158,11,.2)}
-
-        .vr-desc{font-size:13px;color:var(--text-dim);line-height:1.6;margin-bottom:12px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 
         /* Verdict gauge */
         .vr-gauge{display:flex;align-items:center;gap:14px;margin-bottom:14px}
@@ -153,12 +136,44 @@
         .g-text b{color:var(--text)}
 
         /* Agent bars */
-        .agents{display:flex;flex-direction:column;gap:6px;flex:1}
-        .ag-row{display:flex;align-items:center;gap:8px}
-        .ag-name{width:70px;font-size:11px;color:var(--text-muted);font-weight:500}
+        .agents{display:flex;flex-direction:column;gap:6px;margin-bottom:12px}
+        .ag-row{display:flex;align-items:center;gap:8px;cursor:pointer;padding:2px 0;border-radius:4px;transition:background .2s}
+        .ag-row:hover{background:rgba(255,255,255,.02)}
+        .ag-name{width:80px;font-size:11px;color:var(--text-muted);font-weight:500;display:flex;align-items:center;gap:4px}
         .ag-bar{flex:1;height:6px;background:rgba(255,255,255,.04);border-radius:3px;overflow:hidden}
         .ag-fill{height:100%;border-radius:3px;transition:width .8s ease}
         .ag-val{width:36px;text-align:right;font-size:12px;font-weight:600}
+        .ag-status{font-size:10px;color:var(--text-muted);margin-left:4px}
+        .ag-toggle{font-size:10px;color:var(--text-muted);margin-left:auto;transition:transform .2s}
+        .ag-toggle.open{transform:rotate(90deg)}
+
+        /* Agent evidence detail */
+        .ag-evidence{
+            display:none;padding:6px 8px 6px 88px;
+            font-size:11px;color:var(--text-muted);line-height:1.5;
+        }
+        .ag-evidence.show{display:block}
+        .ev-item{padding:3px 0;border-bottom:1px solid rgba(255,255,255,.03)}
+        .ev-item:last-child{border-bottom:none}
+        .ev-type{display:inline-block;background:rgba(59,130,246,.1);color:var(--accent);padding:1px 6px;border-radius:3px;font-size:10px;font-weight:500;margin-right:6px}
+        .ev-score{float:right;font-weight:600}
+
+        /* Rationale */
+        .vr-rationale-label{font-size:10px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;display:flex;align-items:center;gap:4px}
+        .vr-rationale{
+            margin-bottom:8px;padding:10px 14px;
+            background:rgba(255,255,255,.02);border-radius:var(--radius-sm);
+            border:1px solid var(--border);font-size:12px;color:var(--text-dim);
+            line-height:1.6;max-height:80px;overflow:hidden;
+            transition:max-height .3s ease;cursor:pointer;position:relative;
+        }
+        .vr-rationale.expanded{max-height:600px}
+        .vr-rationale::after{
+            content:'';position:absolute;bottom:0;left:0;right:0;height:24px;
+            background:linear-gradient(transparent,var(--bg-card));pointer-events:none;
+            transition:opacity .3s;
+        }
+        .vr-rationale.expanded::after{opacity:0}
 
         .vr-meta{margin-top:auto;padding-top:10px;border-top:1px solid var(--border);font-size:11px;color:var(--text-muted);display:flex;gap:12px;flex-wrap:wrap}
 
@@ -182,6 +197,8 @@
         @media(max-width:540px){
             .stats{display:grid;grid-template-columns:1fr 1fr;gap:8px}
             .hdr-time{display:none}
+            .ag-name{width:60px;font-size:10px}
+            .ag-evidence{padding-left:68px}
         }
 
         ::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
@@ -221,19 +238,19 @@
         <button class="fbtn" data-filter="fake" data-i="f_fake">🔴 伪造</button>
         <button class="fbtn" data-filter="real" data-i="f_real">🟢 真实</button>
         <button class="fbtn" data-filter="uncertain" data-i="f_unc">🟡 不确定</button>
-        <input class="sbox" id="searchInput" data-i-placeholder="search_ph" placeholder="🔍 搜索标题或来源...">
+        <input class="sbox" id="searchInput" data-i-placeholder="search_ph" placeholder="🔍 搜索视频名称...">
     </div>
 
     <!-- Video list -->
     <div class="vlist" id="vlist">
-        <div class="loading"><div class="spinner"></div><span style="color:var(--text-muted)" data-i="loading">正在加载...</span></div>
+        <div class="loading"><div class="spinner"></div><span style="color:var(--text-muted)" data-i="loading">正在加载分析结果...</span></div>
     </div>
 </div>
 
 <footer>
 <div class="container">
     <p data-i="footer1">Viagent — 多智能体 AI 视频真伪检测系统 · Style / Physics / Spatial / Temporal / Watermark</p>
-    <p style="margin-top:6px" data-i="footer2">数据仅供参考，不代表最终事实认定</p>
+    <p style="margin-top:6px" data-i="footer2">数据来源于 Viagent 多智能体分析流水线</p>
 </div>
 </footer>
 
@@ -246,44 +263,62 @@ const I18N = {
 zh: {
     s_total:'视频总数', s_fake:'检测为伪造', s_real:'检测为真实', s_unc:'尚不确定',
     f_all:'全部', f_fake:'🔴 伪造', f_real:'🟢 真实', f_unc:'🟡 不确定',
-    search_ph:'🔍 搜索标题或来源...',
-    loading:'正在加载...',
+    search_ph:'🔍 搜索视频名称...',
+    loading:'正在加载分析结果...',
     empty:'没有找到匹配的结果',
-    nodata:'数据加载失败，请先运行爬虫',
-    updated:'最近更新',
+    nodata:'尚无分析数据',
+    nodata_hint:'请先将视频放入 data/ 目录，然后运行分析',
+    updated:'最近同步',
     just_now:'刚刚',
     hours_ago:'{n} 小时前',
     days_ago:'{n} 天前',
     fake_prob:'伪造概率',
     confidence:'置信度',
-    source_label:'来源',
-    view_source:'查看原文',
+    analyzed:'分析时间',
+    file_path:'文件路径',
+    ground_truth:'标注标签',
+    rationale:'判定依据',
+    click_expand:'点击展开',
+    evidence_count:'{n} 条证据',
     verdict_fake:'伪造', verdict_real:'真实', verdict_uncertain:'不确定',
     ag_style:'风格分析', ag_physics:'物理定律', ag_spatial:'空间特征', ag_temporal:'时序一致', ag_watermark:'水印检测',
+    status_ok:'正常', status_skipped:'跳过', status_error:'错误',
     footer1:'Viagent — 多智能体 AI 视频真伪检测系统 · Style / Physics / Spatial / Temporal / Watermark',
-    footer2:'数据仅供参考，不代表最终事实认定',
+    footer2:'数据来源于 Viagent 多智能体分析流水线',
     page_title:'Viagent — AI 视频真伪检测平台',
+    cmd_step1:'1. 将视频放入 data/ 文件夹',
+    cmd_step2:'2. cd src && python main.py --label all',
+    cmd_step3:'3. python sync_to_web.py',
 },
 en: {
     s_total:'Total Videos', s_fake:'Detected Fake', s_real:'Detected Real', s_unc:'Uncertain',
     f_all:'All', f_fake:'🔴 Fake', f_real:'🟢 Real', f_unc:'🟡 Uncertain',
-    search_ph:'🔍 Search title or source...',
-    loading:'Loading...',
+    search_ph:'🔍 Search video name...',
+    loading:'Loading analysis results...',
     empty:'No matching results found',
-    nodata:'Failed to load data. Run the crawler first.',
-    updated:'Last updated',
+    nodata:'No analysis data yet',
+    nodata_hint:'Place videos in the data/ folder and run analysis first',
+    updated:'Last synced',
     just_now:'Just now',
     hours_ago:'{n}h ago',
     days_ago:'{n}d ago',
     fake_prob:'Fake probability',
     confidence:'Confidence',
-    source_label:'Source',
-    view_source:'View source',
+    analyzed:'Analyzed',
+    file_path:'File path',
+    ground_truth:'Ground truth',
+    rationale:'Rationale',
+    click_expand:'Click to expand',
+    evidence_count:'{n} evidence items',
     verdict_fake:'Fake', verdict_real:'Real', verdict_uncertain:'Uncertain',
     ag_style:'Style', ag_physics:'Physics', ag_spatial:'Spatial', ag_temporal:'Temporal', ag_watermark:'Watermark',
+    status_ok:'OK', status_skipped:'Skipped', status_error:'Error',
     footer1:'Viagent — Multi-Agent AI Video Authenticity Detection · Style / Physics / Spatial / Temporal / Watermark',
-    footer2:'Results are for reference only and do not constitute a final determination of fact.',
+    footer2:'Data from Viagent multi-agent analysis pipeline',
     page_title:'Viagent — AI Video Authenticity Detection',
+    cmd_step1:'1. Place videos in data/ folder',
+    cmd_step2:'2. cd src && python main.py --label all',
+    cmd_step3:'3. python sync_to_web.py',
 }
 };
 
@@ -314,7 +349,10 @@ let allData = [];
 let currentFilter = 'all';
 let generatedAt = null;
 
-function scoreColor(s){ return s>=.7?'var(--red)':s<=.3?'var(--green)':'var(--yellow)'; }
+function scoreColor(s){
+    if(s==null) return 'var(--text-muted)';
+    return s>=.7?'var(--red)':s<=.3?'var(--green)':'var(--yellow)';
+}
 function verdictText(l){ return t('verdict_'+l) || l; }
 function verdictIcon(l){ return {fake:'🔴',real:'🟢',uncertain:'🟡'}[l]||'⚪'; }
 
@@ -332,9 +370,9 @@ function formatDate(ds){
 }
 
 function fmtDateFull(ds){
-    if(!ds)return '';
+    if(!ds) return '';
     try{
-        const d=new Date(ds); if(isNaN(d.getTime()))return ds;
+        const d=new Date(ds); if(isNaN(d.getTime())) return ds;
         const opts = lang==='zh'
             ? {year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit'}
             : {year:'numeric',month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'};
@@ -342,7 +380,7 @@ function fmtDateFull(ds){
     }catch(e){return ds;}
 }
 
-function esc(s){const d=document.createElement('div');d.textContent=s;return d.innerHTML;}
+function esc(s){if(!s)return '';const d=document.createElement('div');d.textContent=s;return d.innerHTML;}
 
 function updateTimeDisplay(){
     const el=document.getElementById('updateTime');
@@ -352,13 +390,13 @@ function updateTimeDisplay(){
 /* ═══════════════════ Load ═══════════════════ */
 async function loadData(){
     try{
-        const r=await fetch(DATA_URL); if(!r.ok)throw new Error(r.status);
+        const r=await fetch(DATA_URL); if(!r.ok) throw new Error(r.status);
         const d=await r.json();
         allData=(d.items||[]).slice();
         generatedAt=d.generated_at;
-        // sort by pub_date descending (newest first)
+        // sort by analyzed_at descending (newest first)
         allData.sort((a,b)=>{
-            const da=new Date(a.pub_date||0), db=new Date(b.pub_date||0);
+            const da=new Date(a.analyzed_at||0), db=new Date(b.analyzed_at||0);
             return db-da;
         });
         updateTimeDisplay();
@@ -366,28 +404,38 @@ async function loadData(){
         renderList();
     }catch(e){
         console.error(e);
-        document.getElementById('vlist').innerHTML=`<div class="empty"><div class="e-icon">📡</div><p>${t('nodata')}</p><p style="margin-top:6px;font-size:12px">python website/crawler.py</p></div>`;
+        document.getElementById('vlist').innerHTML=`
+        <div class="empty">
+            <div class="e-icon">📂</div>
+            <p>${t('nodata')}</p>
+            <p style="margin-top:8px;font-size:12px;color:var(--text-muted)">${t('nodata_hint')}</p>
+            <div style="margin-top:16px;text-align:left;display:inline-block;background:rgba(255,255,255,.03);padding:12px 20px;border-radius:8px;font-family:monospace;font-size:12px;line-height:2;color:var(--text-dim)">
+                ${t('cmd_step1')}<br>
+                ${t('cmd_step2')}<br>
+                ${t('cmd_step3')}
+            </div>
+        </div>`;
     }
 }
 
 /* ═══════════════════ Stats ══════════════════ */
 function updateStats(){
     anim('sTotal',allData.length);
-    anim('sFake',allData.filter(d=>d.verdict.label==='fake').length);
-    anim('sReal',allData.filter(d=>d.verdict.label==='real').length);
-    anim('sUnc',allData.filter(d=>d.verdict.label==='uncertain').length);
+    anim('sFake',allData.filter(d=>d.verdict&&d.verdict.label==='fake').length);
+    anim('sReal',allData.filter(d=>d.verdict&&d.verdict.label==='real').length);
+    anim('sUnc',allData.filter(d=>!d.verdict||d.verdict.label==='uncertain').length);
 }
 function anim(id,tgt){
     const el=document.getElementById(id);let c=0;const s=Math.max(1,Math.ceil(tgt/25));
-    const t=setInterval(()=>{c+=s;if(c>=tgt){c=tgt;clearInterval(t)}el.textContent=c;},25);
+    const iv=setInterval(()=>{c+=s;if(c>=tgt){c=tgt;clearInterval(iv)}el.textContent=c;},25);
 }
 
 /* ═══════════════════ Render ═════════════════ */
 function renderList(){
     const q=document.getElementById('searchInput').value.toLowerCase().trim();
     let items=allData;
-    if(currentFilter!=='all') items=items.filter(d=>d.verdict.label===currentFilter);
-    if(q) items=items.filter(d=>(d.title||'').toLowerCase().includes(q)||(d.source||'').toLowerCase().includes(q)||(d.description||'').toLowerCase().includes(q));
+    if(currentFilter!=='all') items=items.filter(d=>d.verdict&&d.verdict.label===currentFilter);
+    if(q) items=items.filter(d=>(d.title||'').toLowerCase().includes(q)||(d.video_path||'').toLowerCase().includes(q));
 
     const el=document.getElementById('vlist');
     if(!items.length){el.innerHTML=`<div class="empty"><div class="e-icon">🔍</div><p>${t('empty')}</p></div>`;return;}
@@ -397,60 +445,108 @@ function renderList(){
     const agIcons=['🎨','⚡','🔲','🕐','💧'];
     const circ=2*Math.PI*22;
 
-    el.innerHTML=items.map(item=>{
-        const v=item.verdict, ag=item.agents||{};
-        const pct=(v.score_fake*100).toFixed(0);
-        const off=circ*(1-v.score_fake);
-        // Left side: thumbnail image or fallback placeholder
+    el.innerHTML=items.map((item, idx)=>{
+        const v=item.verdict||{label:'uncertain',score_fake:0.5,confidence:0.5};
+        const ag=item.agents||{};
+        const sf=v.score_fake!=null?v.score_fake:0.5;
+        const pct=(sf*100).toFixed(0);
+        const off=circ*(1-sf);
+
+        // Label badge for ground truth
+        const lblClass = item.label==='fake'?'lbl-fake':item.label==='real'?'lbl-real':'lbl-unknown';
+        const lblText = item.label||'unknown';
+
+        // Left side: thumbnail or placeholder
         let leftContent;
         if(item.thumbnail){
-            leftContent=`<img class="thumb-img" src="${esc(item.thumbnail)}" alt="" loading="lazy" onerror="this.parentElement.innerHTML='<div class=video-placeholder><div class=vp-icon>🎬</div><div class=vp-title>${esc(item.title).replace(/'/g,"&#39;")}</div></div>'">
-            <div class="thumb-overlay"><span class="to-src">${esc(item.source||'')}</span></div>
-            ${item.source_url?`<a class="thumb-link" href="${esc(item.source_url)}" target="_blank" rel="noopener noreferrer">${t('view_source')} →</a>`:''}`;
-        } else if(item.video_url){
-            leftContent=`<video controls preload="metadata"><source src="${esc(item.video_url)}" type="video/mp4"></video>`;
+            leftContent=`<img class="thumb-img" src="${esc(item.thumbnail)}" alt="${esc(item.title)}" loading="lazy"
+                onerror="this.parentElement.innerHTML='<div class=video-placeholder><div class=vp-icon>🎬</div><div class=vp-title>${esc(item.title).replace(/'/g,"&#39;")}</div></div>'">
+            <div class="thumb-overlay">
+                <span class="to-path">${esc(item.video_path)}</span>
+                <span class="to-label ${lblClass}">${esc(lblText)}</span>
+            </div>`;
         } else {
             leftContent=`<div class="video-placeholder">
                 <div class="vp-icon">🎬</div>
                 <div class="vp-title">${esc(item.title)}</div>
-                <div class="vp-src">${esc(item.source||'')}</div>
-                ${item.source_url?`<a class="vp-link" href="${esc(item.source_url)}" target="_blank" rel="noopener noreferrer">${t('view_source')} →</a>`:''}
+                <div class="vp-path">${esc(item.video_path||'')}</div>
             </div>`;
         }
+
+        // Agent rows with expandable evidence
+        let agentHTML = '';
+        for(let i=0;i<agNames.length;i++){
+            const a=ag[agNames[i]];
+            if(!a) continue;
+            const status = a.status||'ok';
+            if(status==='skipped'){
+                agentHTML+=`<div class="ag-row"><div class="ag-name">${agIcons[i]} ${t(agKeys[i])}</div><div class="ag-bar"></div><div class="ag-val" style="color:var(--text-muted)">—</div><span class="ag-status">${t('status_skipped')}</span></div>`;
+                continue;
+            }
+            if(status==='error'){
+                agentHTML+=`<div class="ag-row"><div class="ag-name">${agIcons[i]} ${t(agKeys[i])}</div><div class="ag-bar"></div><div class="ag-val" style="color:var(--red)">✗</div><span class="ag-status">${t('status_error')}</span></div>`;
+                continue;
+            }
+            const asf=a.score_fake!=null?a.score_fake:0.5;
+            const ap=(asf*100).toFixed(0);
+            const evCount=a.evidence?a.evidence.length:0;
+            const evId = 'ev_'+idx+'_'+agNames[i];
+            agentHTML+=`<div class="ag-row" onclick="toggleEv('${evId}',this)"><div class="ag-name">${agIcons[i]} ${t(agKeys[i])}</div><div class="ag-bar"><div class="ag-fill" style="width:${ap}%;background:${scoreColor(asf)}"></div></div><div class="ag-val" style="color:${scoreColor(asf)}">${ap}%</div>${evCount?'<span class="ag-toggle">▶</span>':''}</div>`;
+            if(evCount){
+                agentHTML+=`<div class="ag-evidence" id="${evId}">${a.evidence.map(ev=>`<div class="ev-item"><span class="ev-type">${esc(ev.type)}</span>${esc(ev.detail)}${ev.score!=null?`<span class="ev-score" style="color:${scoreColor(ev.score)}">${(ev.score*100).toFixed(0)}%</span>`:''}</div>`).join('')}</div>`;
+            }
+        }
+
+        // Rationale section
+        const rationale = v.rationale||'';
+        const rationaleHTML = rationale?`
+            <div class="vr-rationale-label">📋 ${t('rationale')} <span style="font-size:9px;color:var(--text-muted)">(${t('click_expand')})</span></div>
+            <div class="vr-rationale" onclick="this.classList.toggle('expanded')">${esc(rationale)}</div>`:'';
+
+        // Verdict evidence count
+        const vEvCount = v.evidence?v.evidence.length:0;
+
         return `
 <div class="vcard">
   <div class="vcard-left">
     <div class="video-embed">${leftContent}</div>
-    <div class="video-date">🕐 ${fmtDateFull(item.pub_date)}</div>
+    <div class="video-date">🕐 ${t('analyzed')}: ${fmtDateFull(item.analyzed_at)}</div>
   </div>
   <div class="vcard-right">
     <div class="vr-header">
       <div class="vr-title">${esc(item.title)}</div>
       <div class="badge ${v.label}">${verdictIcon(v.label)} ${verdictText(v.label)}</div>
     </div>
-    <div class="vr-desc">${esc(item.description||'')}</div>
     <div class="vr-gauge">
       <div class="g-ring">
-        <svg viewBox="0 0 56 56"><circle class="g-bg" cx="28" cy="28" r="22"/><circle class="g-fill" cx="28" cy="28" r="22" stroke="${scoreColor(v.score_fake)}" stroke-dasharray="${circ}" stroke-dashoffset="${off}"/></svg>
-        <div class="g-val" style="color:${scoreColor(v.score_fake)}">${pct}%</div>
+        <svg viewBox="0 0 56 56"><circle class="g-bg" cx="28" cy="28" r="22"/><circle class="g-fill" cx="28" cy="28" r="22" stroke="${scoreColor(sf)}" stroke-dasharray="${circ}" stroke-dashoffset="${off}"/></svg>
+        <div class="g-val" style="color:${scoreColor(sf)}">${pct}%</div>
       </div>
-      <div class="g-text"><b>${t('fake_prob')}</b> ${pct}%<br>${t('confidence')} ${(v.confidence*100).toFixed(0)}%</div>
+      <div class="g-text">
+        <b>${t('fake_prob')}</b> ${pct}%<br>
+        ${t('confidence')} ${((v.confidence||0)*100).toFixed(0)}%
+        ${vEvCount?`<br><span style="font-size:10px">${t('evidence_count').replace('{n}',vEvCount)}</span>`:''}
+      </div>
     </div>
-    <div class="agents">
-      ${agNames.map((n,i)=>{
-          const a=ag[n]; if(!a)return '';
-          const p=(a.score_fake*100).toFixed(0);
-          return `<div class="ag-row"><div class="ag-name">${agIcons[i]} ${t(agKeys[i])}</div><div class="ag-bar"><div class="ag-fill" style="width:${p}%;background:${scoreColor(a.score_fake)}"></div></div><div class="ag-val" style="color:${scoreColor(a.score_fake)}">${p}%</div></div>`;
-      }).join('')}
-    </div>
+    <div class="agents">${agentHTML}</div>
+    ${rationaleHTML}
     <div class="vr-meta">
-      <span>📰 ${t('source_label')}: ${esc(item.source||'—')}</span>
-      ${item.source_url?`<span><a href="${esc(item.source_url)}" target="_blank" rel="noopener noreferrer" style="color:var(--accent);text-decoration:none">${t('view_source')} →</a></span>`:''}
+      <span>📁 ${esc(item.video_path||'')}</span>
+      ${item.label?`<span>🏷️ ${t('ground_truth')}: ${esc(item.label)}</span>`:''}
     </div>
   </div>
 </div>`;
     }).join('');
 }
+
+/* ═══════════════════ Toggle Evidence ═════════ */
+window.toggleEv = function(id, row){
+    const el=document.getElementById(id);
+    if(!el) return;
+    el.classList.toggle('show');
+    const toggle=row.querySelector('.ag-toggle');
+    if(toggle) toggle.classList.toggle('open');
+};
 
 /* ═══════════════════ Events ═════════════════ */
 document.querySelectorAll('.fbtn').forEach(b=>{
