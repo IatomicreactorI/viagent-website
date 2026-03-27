@@ -1,0 +1,146 @@
+{
+  "generated_at": "2026-03-27T07:12:45.052832+00:00",
+  "total": 1,
+  "stats": {
+    "fake": 0,
+    "real": 1,
+    "uncertain": 0
+  },
+  "items": [
+    {
+      "id": "f2ff12cf",
+      "case_id": "Ym83UVd4MmkybDJ4eEh6di5tcDQ",
+      "video_path": "bo7QWx2i2l2xxHzv.mp4",
+      "title": "bo7QWx2i2l2xxHzv",
+      "label": null,
+      "analyzed_at": "2026-03-27T13:44:04.763138",
+      "verdict": {
+        "label": "real",
+        "score_fake": 0.33,
+        "confidence": 0.66,
+        "rationale": "Across the frames the scene reads as normal handheld phone footage of a large smoke plume; smoke structure, lighting, and building/vehicle geometry look consistent with heavy compression/zoom rather than AI synthesis. This visual impression down-weights STYLE’s high score (weak microtexture is expected at this resolution) and SPATIAL’s mid score (no clear face boundary halos/region mismatches visible), aligning more with PHYSICS/TEMPORAL/WATERMARK low-fake assessments.",
+        "evidence": [
+          {
+            "type": "normal_physical_motion",
+            "detail": "Frames 1-50: The smoke/dust column grows and billows continuously (expected turbulent buoyant plume behavior) without teleportation-like jumps; foreground cars and pedestrians maintain ground contact and show plausible frame-to-frame displacement; no collision/interpenetration artifacts are evident in the clear foreground objects (cars, lamp post, building edges).",
+            "score": 0.25
+          },
+          {
+            "type": "optical_flow_false_positive",
+            "detail": "Frames 1-2 and 5-7 (algorithm flagged motion-coherence/background-coupling issues): visually, the main change is a slight camera reframe/zoom and evolving smoke texture; rigid background elements (building roofline, lamp post) do not show clear warping tied to foreground motion, suggesting the low coherence/coupling scores are likely driven by compression/low-texture smoke regions rather than a physical-law violation.",
+            "score": 0.35
+          },
+          {
+            "type": "geometry_stability_false_positive",
+            "detail": "Algorithm-reported line-curvature anomalies (notably around frames 1-6 and 10-14) are not clearly visible: straight features like the building roof edge, window rows, fence lines, and the streetlamp remain straight and consistent under the apparent camera motion; any minor wobble is consistent with rolling-shutter/camera shake rather than impossible geometry deformation.",
+            "score": 0.32
+          },
+          {
+            "type": "face_boundary_halo",
+            "detail": "Frames 7/17/20/23/26: ELA boundary analysis flagged halos with max halo_score=2.86 and mean boundary_bg_ratio=2.10 (threshold: 1.5). Visual inspection of the high-contrast smoke/sky edges shows mild ringing/haloing consistent with recompression around sharp luminance transitions; no clear cut-paste seam is unambiguous.",
+            "score": 0.62
+          },
+          {
+            "type": "local_patch_inconsistency",
+            "detail": "Frames 1/4/13/23/33: Patch inconsistency analysis reported max patch_anomaly_score=0.42 (threshold: 0.3). Visually, some localized texture blocks appear within the smoke plumes and along building edges, consistent with macroblock quantization differences rather than a definite inserted region.",
+            "score": 0.55
+          },
+          {
+            "type": "region_mismatch",
+            "detail": "Frames 46/52/56/59/91: Local edge coherence shows very high edge_noise_ratio up to 1.00 and soft_edge_ratio up to 0.75 (mean 0.55), suggesting unusually soft/noisy boundaries. Visually, smoke boundaries look smeared and overly soft relative to nearby rigid edges (lamp post/building), which can indicate either heavy compression/resizing or potential local blending.",
+            "score": 0.57
+          },
+          {
+            "type": "live_action_like_but_suspicious_style",
+            "detail": "Looks like handheld phone footage of a building and smoke plume with plausible real-world geometry; no identifiable game/animation studio/brand source → not classifiable as specific traditional CG.",
+            "score": 0.55
+          },
+          {
+            "type": "weak_natural_microtexture",
+            "detail": "Across sky/smoke/building, fine detail is heavily suppressed; smoke billows have painterly/denoised look rather than granular turbulent texture; edges are soft and uniform across frames.",
+            "score": 0.8
+          }
+        ]
+      },
+      "agents": {
+        "physics": {
+          "status": "ok",
+          "score_fake": 0.28,
+          "confidence": 0.62,
+          "error": null,
+          "evidence": [
+            {
+              "type": "normal_physical_motion",
+              "detail": "Frames 1-50: The smoke/dust column grows and billows continuously (expected turbulent buoyant plume behavior) without teleportation-like jumps; foreground cars and pedestrians maintain ground contact and show plausible frame-to-frame displacement; no collision/interpenetration artifacts are evident in the clear foreground objects (cars, lamp post, building edges).",
+              "score": 0.25
+            },
+            {
+              "type": "optical_flow_false_positive",
+              "detail": "Frames 1-2 and 5-7 (algorithm flagged motion-coherence/background-coupling issues): visually, the main change is a slight camera reframe/zoom and evolving smoke texture; rigid background elements (building roofline, lamp post) do not show clear warping tied to foreground motion, suggesting the low coherence/coupling scores are likely driven by compression/low-texture smoke regions rather than a physical-law violation.",
+              "score": 0.35
+            },
+            {
+              "type": "geometry_stability_false_positive",
+              "detail": "Algorithm-reported line-curvature anomalies (notably around frames 1-6 and 10-14) are not clearly visible: straight features like the building roof edge, window rows, fence lines, and the streetlamp remain straight and consistent under the apparent camera motion; any minor wobble is consistent with rolling-shutter/camera shake rather than impossible geometry deformation.",
+              "score": 0.32
+            }
+          ]
+        },
+        "spatial": {
+          "status": "ok",
+          "score_fake": 0.58,
+          "confidence": 0.56,
+          "error": null,
+          "evidence": [
+            {
+              "type": "face_boundary_halo",
+              "detail": "Frames 7/17/20/23/26: ELA boundary analysis flagged halos with max halo_score=2.86 and mean boundary_bg_ratio=2.10 (threshold: 1.5). Visual inspection of the high-contrast smoke/sky edges shows mild ringing/haloing consistent with recompression around sharp luminance transitions; no clear cut-paste seam is unambiguous.",
+              "score": 0.62
+            },
+            {
+              "type": "local_patch_inconsistency",
+              "detail": "Frames 1/4/13/23/33: Patch inconsistency analysis reported max patch_anomaly_score=0.42 (threshold: 0.3). Visually, some localized texture blocks appear within the smoke plumes and along building edges, consistent with macroblock quantization differences rather than a definite inserted region.",
+              "score": 0.55
+            },
+            {
+              "type": "region_mismatch",
+              "detail": "Frames 46/52/56/59/91: Local edge coherence shows very high edge_noise_ratio up to 1.00 and soft_edge_ratio up to 0.75 (mean 0.55), suggesting unusually soft/noisy boundaries. Visually, smoke boundaries look smeared and overly soft relative to nearby rigid edges (lamp post/building), which can indicate either heavy compression/resizing or potential local blending.",
+              "score": 0.57
+            }
+          ]
+        },
+        "style": {
+          "status": "ok",
+          "score_fake": 0.77,
+          "confidence": 0.78,
+          "error": null,
+          "evidence": [
+            {
+              "type": "live_action_like_but_suspicious_style",
+              "detail": "Looks like handheld phone footage of a building and smoke plume with plausible real-world geometry; no identifiable game/animation studio/brand source → not classifiable as specific traditional CG.",
+              "score": 0.55
+            },
+            {
+              "type": "weak_natural_microtexture",
+              "detail": "Across sky/smoke/building, fine detail is heavily suppressed; smoke billows have painterly/denoised look rather than granular turbulent texture; edges are soft and uniform across frames.",
+              "score": 0.8
+            }
+          ]
+        },
+        "temporal": {
+          "status": "ok",
+          "score_fake": 0.25,
+          "confidence": 0.62,
+          "error": null
+        },
+        "watermark": {
+          "status": "ok",
+          "score_fake": 0.22,
+          "confidence": 0.68,
+          "error": null
+        }
+      },
+      "thumbnail": "thumbs/Ym83UVd4MmkybDJ4eEh6di5tcDQ.jpg"
+    }
+  ]
+}
